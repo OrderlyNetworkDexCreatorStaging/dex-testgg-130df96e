@@ -107,20 +107,20 @@ describe("DexThemeConfigSchema", () => {
         createTheme({
           tradingViewColorConfig: {
             chartBG: "red",
-            closeIcon: "rgba(255, 255, 255, 0.8)",
+            closeIconColor: "rgba(255, 255, 255, 0.8)",
           },
         }),
       ]).success,
     ).toBe(false);
 
-    for (const closeIcon of [
+    for (const closeIconColor of [
       "rgba(256, 255, 255, 0.8)",
       "rgba(255, 255, 255, 1.1)",
       "rgb(255, 255, 255)",
     ]) {
       expect(
         DexThemeConfigSchema.safeParse([
-          createTheme({ tradingViewColorConfig: { closeIcon } }),
+          createTheme({ tradingViewColorConfig: { closeIconColor } }),
         ]).success,
       ).toBe(false);
     }
@@ -130,7 +130,7 @@ describe("DexThemeConfigSchema", () => {
         createTheme({
           tradingViewColorConfig: {
             chartBG: "#fff",
-            closeIcon: "rgba(255, 255, 255, 0.8)",
+            closeIconColor: "rgba(255, 255, 255, 0.8)",
           },
         }),
       ]).success,
@@ -208,12 +208,14 @@ describe("getDexThemeConfig", () => {
       VITE_TRADING_VIEW_COLOR_CONFIG: JSON.stringify({
         pnlZoreColor: "#333948",
         font: "Manrope",
+        closeIconColor: "rgba(255, 255, 255, 0.8)",
       }),
     });
 
     expect(getLegacyTradingViewConfig()).toEqual({
       pnlZoreColor: "#333948",
       font: "Manrope",
+      closeIconColor: "rgba(255, 255, 255, 0.8)",
     });
   });
 

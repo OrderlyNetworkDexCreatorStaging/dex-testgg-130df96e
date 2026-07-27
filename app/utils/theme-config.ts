@@ -51,7 +51,7 @@ const TradingViewColorConfigSchema = z
     qtyTextColor: HexColorSchema,
     volumeUpColor: HexColorSchema,
     volumeDownColor: HexColorSchema,
-    closeIcon: CloseIconColorSchema,
+    closeIconColor: CloseIconColorSchema,
   })
   .partial();
 
@@ -139,7 +139,7 @@ const LegacyTradingViewColorConfigSchema = z
     qtyTextColor: HexColorSchema,
     volumeUpColor: HexColorSchema,
     volumeDownColor: HexColorSchema,
-    closeIcon: CloseIconColorSchema,
+    closeIconColor: CloseIconColorSchema,
   })
   .partial();
 
